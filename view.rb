@@ -8,20 +8,8 @@ class View
     puts '=========================='
   end
 
-  def self.display_eu_teams(team)
-    puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[4]}|"
-  end
-
-  def self.display_na_teams(team)
-    puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[6]}|"
-  end
-
-  def self.display_kr_teams(team)
-    puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[7]}|"
-  end
-
-  def self.display_cn_teams(team)
-    puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[7]}|"
+  def self.display_teams(team, streak_index)
+    puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[streak_index]}|"
   end
 
   def self.program_view

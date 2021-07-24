@@ -25,7 +25,7 @@ class Controller
     View.header('EU')
     puts ''
     raw_data.each do |team|
-      View.display_eu_teams(team)
+      View.display_teams(team, 4)
     end
     puts ''
     puts '=========================='
@@ -36,7 +36,7 @@ class Controller
     View.header('NA')
     puts ''
     raw_data.each do |team|
-      View.display_na_teams(team)
+      View.display_teams(team, 6)
     end
     puts ''
     puts '=========================='
@@ -47,7 +47,7 @@ class Controller
     View.header('KR')
     puts ''
     raw_data.each do |team|
-      View.display_kr_teams(team)
+      View.display_teams(team, 7)
     end
     puts ''
     puts '=========================='
@@ -58,7 +58,7 @@ class Controller
     View.header('CN')
     puts ''
     raw_data.each do |team|
-      View.display_cn_teams(team)
+      View.display_teams(team, 7)
     end
     puts ''
     puts '=========================='
