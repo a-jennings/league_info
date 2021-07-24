@@ -17,11 +17,11 @@ class View
   end
 
   def self.display_kr_teams(team) # a 8 thing array
-    puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[6]}|"
+    puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[7]}|"
   end
 
   def self.display_cn_teams(team) # a 8 thing array
-    puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[6]}|"
+    puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[7]}|"
   end
 
   def self.program_view
