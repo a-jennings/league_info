@@ -7,6 +7,14 @@ EU_SEASON = "https://lol.fandom.com/wiki/LEC/2021_Season/Summer_Season"
 NA_SEASON = "https://lol.fandom.com/wiki/LCS/2021_Season/Summer_Season"
 CN_SEASON = "https://lol.fandom.com/wiki/LPL/2021_Season/Summer_Season"
 KR_SEASON = "https://lol.fandom.com/wiki/LCK/2021_Season/Summer_Season"
+EU_SLICE_SIZE = 5    # Slice and Shift for scraper, to pull correct information
+NA_SLICE_SIZE = 7
+CN_SLICE_SIZE = 8
+KR_SLICE_SIZE = 8
+EU_SHIFT_SIZE = 2
+NA_SHIFT_SIZE = 4
+CN_SHIFT_SIZE = 5
+KR_SHIFT_SIZE = 3
 
 
 class Controller
@@ -14,7 +22,7 @@ class Controller
   end
 
   def self.eu_league
-    raw_data = eu_scraper(EU_SEASON)
+    raw_data = scraper(EU_SEASON, EU_SLICE_SIZE, EU_SHIFT_SIZE)
     View.header('EU')
     puts ""
     raw_data.each do |team|
@@ -25,7 +33,7 @@ class Controller
   end
 
   def self.na_league
-    raw_data = na_scraper(NA_SEASON)
+    raw_data = scraper(NA_SEASON, NA_SLICE_SIZE, NA_SHIFT_SIZE)
     View.header('NA')
     puts ""
     raw_data.each do |team|
@@ -36,7 +44,7 @@ class Controller
   end
 
   def self.kr_league
-    raw_data = kr_scraper(KR_SEASON)
+    raw_data = scraper(KR_SEASON, KR_SLICE_SIZE, KR_SHIFT_SIZE)
     View.header('KR')
     puts ""
     raw_data.each do |team|
@@ -47,7 +55,7 @@ class Controller
   end
 
   def self.cn_league
-    raw_data = cn_scraper(CN_SEASON)
+    raw_data = scraper(CN_SEASON, CN_SLICE_SIZE, CN_SHIFT_SIZE)
     View.header('CN')
     puts ""
     raw_data.each do |team|
@@ -60,11 +68,4 @@ class Controller
   def self.user_input
     View.program_view
   end
-
-
-
-
 end
-
-
-# Controller does the CRUD methods. Maybe push to CSV? Remember to loop over all items in the array

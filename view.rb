@@ -1,26 +1,23 @@
 class View
-  def initialize
-  end
-
   def self.header(region)
     puts "=======  #{region} TABLE  ======="
     puts "# |TEAM| |WIN-LOSS| |WIN%| |STREAK|"
     puts "=========================="
   end
 
-  def self.display_eu_teams(team) # a 5 thing array
+  def self.display_eu_teams(team)
     puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[4]}|"
   end
 
-  def self.display_na_teams(team) # a 7 thing array
+  def self.display_na_teams(team)
     puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[6]}|"
   end
 
-  def self.display_kr_teams(team) # a 8 thing array
+  def self.display_kr_teams(team)
     puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[7]}|"
   end
 
-  def self.display_cn_teams(team) # a 8 thing array
+  def self.display_cn_teams(team)
     puts "#{team[0]}| #{team[1]} | #{team[2]} | #{team[3]} |#{team[7]}|"
   end
 
