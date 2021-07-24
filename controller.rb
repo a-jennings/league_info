@@ -3,62 +3,14 @@
 require_relative 'scraper'
 require_relative 'view'
 
-# Enter current season league URL below here:
-
-EU_SEASON = 'https://lol.fandom.com/wiki/LEC/2021_Season/Summer_Season'
-NA_SEASON = 'https://lol.fandom.com/wiki/LCS/2021_Season/Summer_Season'
-CN_SEASON = 'https://lol.fandom.com/wiki/LPL/2021_Season/Summer_Season'
-KR_SEASON = 'https://lol.fandom.com/wiki/LCK/2021_Season/Summer_Season'
-EU_SLICE_SIZE = 5 # Slice and Shift for scraper, to pull correct information
-NA_SLICE_SIZE = 7
-CN_SLICE_SIZE = 8
-KR_SLICE_SIZE = 8
-EU_SHIFT_SIZE = 2
-NA_SHIFT_SIZE = 4
-CN_SHIFT_SIZE = 5
-KR_SHIFT_SIZE = 3
-
 # Pulls information from scraper and displays information to terminal
 class Controller
-  def self.eu_league
-    raw_data = scraper(EU_SEASON, EU_SLICE_SIZE, EU_SHIFT_SIZE)
-    View.header('EU')
+  def self.league(region)
+    raw_data = scraper(region[:url], region[:slice_size], region[:shift_size])
+    View.header(region[:region_name])
     puts ''
     raw_data.each do |team|
-      View.display_teams(team, 4)
-    end
-    puts ''
-    puts '=========================='
-  end
-
-  def self.na_league
-    raw_data = scraper(NA_SEASON, NA_SLICE_SIZE, NA_SHIFT_SIZE)
-    View.header('NA')
-    puts ''
-    raw_data.each do |team|
-      View.display_teams(team, 6)
-    end
-    puts ''
-    puts '=========================='
-  end
-
-  def self.kr_league
-    raw_data = scraper(KR_SEASON, KR_SLICE_SIZE, KR_SHIFT_SIZE)
-    View.header('KR')
-    puts ''
-    raw_data.each do |team|
-      View.display_teams(team, 7)
-    end
-    puts ''
-    puts '=========================='
-  end
-
-  def self.cn_league
-    raw_data = scraper(CN_SEASON, CN_SLICE_SIZE, CN_SHIFT_SIZE)
-    View.header('CN')
-    puts ''
-    raw_data.each do |team|
-      View.display_teams(team, 7)
+      View.display_teams(team, region[:streak_index])
     end
     puts ''
     puts '=========================='
