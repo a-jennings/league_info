@@ -3,7 +3,6 @@ require 'open-uri'
 require 'nokogiri'
 
 def scraper(url)
-
   html_file = URI.open(url).read
   html_doc = Nokogiri::HTML(html_file)
   table = html_doc.at('.standings')
@@ -11,8 +10,4 @@ def scraper(url)
   search_data.shift(2)
   raw_data = search_data.each_slice(5).to_a
   return raw_data
-
 end
-
-
-p scraper("https://lol.fandom.com/wiki/LEC/2021_Season/Summer_Season")
