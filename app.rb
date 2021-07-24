@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'controller'
 
 running = true
@@ -19,19 +21,9 @@ while running
     Controller.kr_league
     Controller.cn_league
   when 6
-    puts "Good Bye!"
+    puts 'Good Bye!'
     running = false
   else
-    puts "Invalid command"
+    puts 'Invalid command'
   end
-
 end
-
-
-
-# Controller.eu_league
-# Controller.na_league
-# Controller.kr_league
-# Controller.cn_league
-
-# Formatting errors rule out the other major leagues for now
